@@ -59,7 +59,7 @@ const bodyElement = document.body;
 const themeToggleBtn = _("#theme-toggle-btn");
 const currentTheme = localStorage.getItem("currentTheme");
 
-console.log(themeToggleBtn);
+
 if (currentTheme) {
   bodyElement.classList.add("light-theme");
 }
@@ -74,6 +74,6 @@ themeToggleBtn.addEventListener("click", () => {
   }
 });
 
-console.log(currentTheme);
+
 
 // ================ SWIPER ================
