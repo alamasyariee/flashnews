@@ -1,4 +1,5 @@
-// Grab elements
+// ================ GRAB ELEMENTS ================
+
 const _ = (selector) => {
   const element = document.querySelector(selector);
 
@@ -6,8 +7,8 @@ const _ = (selector) => {
   throw new Error(`Make sure that selector exist or is typed correctly`);
 };
 
-console.log(_(".navbar"));
-//Nav styles on scroll
+//================ NAV STYLES ON SCROLL ================
+
 const scrollHeader = () => {
   const headerElement = _("#header");
 
@@ -20,7 +21,7 @@ const scrollHeader = () => {
 
 window.addEventListener("scroll", scrollHeader);
 
-// Open menu & search pop-up
+// ================ OPEN MENU AND SEARCH POP-UP ================
 const menuToggleIcon = _("#menu-toggle-icon");
 
 const toggleMenu = () => {
@@ -32,17 +33,35 @@ const toggleMenu = () => {
 
 menuToggleIcon.addEventListener("click", toggleMenu);
 
-// Open/Close search form popup
+// ================ OPEN/CLOSE SEARCH FORM POP UP ================
+const formOpenBtn = _("#search-icon");
+const formCloseBtn = _("#form-close-btn");
+const searchFormContainer = _("#search-form-container");
 
-// -- Close the search form popup on ESC keypress
+formOpenBtn.addEventListener("click", () => {
+  searchFormContainer.classList.add("activated");
+});
 
-// Switch theme/add to local storage
+formCloseBtn.addEventListener("click", () => {
+  searchFormContainer.classList.remove("activated");
+});
+
+// ================ CLOSE THE SEARCH FORM POP UP ON ESC KEYPRESS ================
+
+window.addEventListener("keyup", (e) => {
+  if (e.key === "Escape") {
+    searchFormContainer.classList.remove("activated");
+  }
+});
+// ================ SWITCH THEME || ADD TO LOCAL STORAGE ================
+
 const bodyElement = document.body;
 const themeToggleBtn = _("#theme-toggle-btn");
 const currentTheme = localStorage.getItem("currentTheme");
 
+console.log(themeToggleBtn);
 if (currentTheme) {
-  bodyElement.classList.add('light-theme')
+  bodyElement.classList.add("light-theme");
 }
 
 themeToggleBtn.addEventListener("click", () => {
@@ -57,4 +76,4 @@ themeToggleBtn.addEventListener("click", () => {
 
 console.log(currentTheme);
 
-// Swiper
+// ================ SWIPER ================
